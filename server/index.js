@@ -17,3 +17,20 @@ app.listen(PORT, () => {
     console.log(`Server listening on the port  ${PORT}`);
 
 });
+
+const pool = require('./dbconfig')
+
+app.get('/badges', async (req, res) => {
+    try {
+
+      //query the database to get all records from the table
+      const list_badges = await pool.query('SELECT * FROM badges_list');
+
+      // Send the rows (array of data) as a response and in JSON format.
+      res.json(list_badges.rows);
+
+    } catch (err) {
+      res.status(500).send('Internal error:'+ err); 
+    }
+  });
+
