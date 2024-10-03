@@ -13,3 +13,5 @@ module.exports = {
   query: (text, params) => pool.query(text, params),
   end: () => pool.end(),
 };
+
+const pool = require('./dbconfig')
