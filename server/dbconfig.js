@@ -14,4 +14,3 @@ module.exports = {
   end: () => pool.end(),
 };
 
-const pool = require('./dbconfig')
